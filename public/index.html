@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <title>EmojiHub</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="app">
+            <div class="emojis">
+                <div id="1">&#128523;</div>
+                <div id="2">&#128526;</div>
+                <div id="3">&#128525;</div>
+            </div>
+            <h1>Welcome to Emoji<span>Hub</span></h1>
+            <h2>A simple & free service with emojis for your cool apps</h2>
+            <a href="https://github.com/cheatsnake/emojihub"
+                >Documentation on GitHub</a
+            >
+        </div>
+    </body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+        .app {
+            background-color: #1c1c1c;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+            padding: 0 1rem 3rem 1rem;
+        }
+        .emojis {
+            display: flex;
+            font-size: 4rem;
+        }
+        .emojis div {
+            cursor: pointer;
+            transition: 0.5s all;
+        }
+        .emojis div:hover {
+            transform: scale(1.1);
+        }
+        h1 {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        h1 span {
+            background-color: #ffc83d;
+            padding: 0 0.2rem;
+            color: #1c1c1c;
+            border-radius: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+        a {
+            font-weight: 700;
+            margin-top: 2.5rem;
+            border-radius: 0.5rem;
+            background-color: transparent;
+            color: #ffc83d;
+            border: 3px solid #ffc83d;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            transition: 0.4s all;
+        }
+        a:hover {
+            background-color: #ffc83d;
+            color: #1c1c1c;
+        }
+    </style>
+
+    <script>
+        const emoji1 = document.getElementById("1");
+        const emoji2 = document.getElementById("2");
+        const emoji3 = document.getElementById("3");
+
+        async function updateEmoji(element) {
+            emojiCode = await fetch("http://localhost:3000/api/random")
+                .then((response) => response.json())
+                .then((emoji) => emoji.htmlCode[0]);
+            // element.innerHTML = `${emojiCode}`;
+            console.log(emojiCode);
+        }
+        updateEmoji();
+        console.log(emoji1);
+        // setInterval(() => updateEmoji(emoji1), 500);
+    </script>
+</html>
