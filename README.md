@@ -5,6 +5,7 @@
 EmojiHub provides an opportunity to get random emojis from already sorted categories and groups. You can also get a whole list of emojis by a certain category, group, or get the entire emoji database consisting of 1629 objects. All emoji data is stored in a simple JSON object from which you can get html codes to insert into your web applications.
 
 ## API Documentation
+### Endpoints
 The service has two main endpoints:
 - To get random emojis
 ```
@@ -27,6 +28,7 @@ https://emojihub.herokuapp.com/api/random
 ```
 https://emojihub.herokuapp.com/api/all
 ```
+### Categories & groups
 Each endpoint can be supplemented by a path to a specific category or group
 ```
 /category_{category_name}
@@ -46,3 +48,17 @@ Table with all available emoji categories and groups
 | objects            | objects                                                                                                                                                   |
 | symbols            | symbols                                                                                                                                                   |
 | flags              | flags  
+
+### Examples
+```
+https://emojihub.herokuapp.com/api/random/group_face_positive
+```
+```
+https://emojihub.herokuapp.com/api/random/category_food_and_drink
+```
+```
+https://emojihub.herokuapp.com/api/all/category_travel_and_places
+```
+```
+https://emojihub.herokuapp.com/api/all/group_animal_bird
+```
