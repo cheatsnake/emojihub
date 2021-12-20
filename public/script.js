@@ -4,7 +4,7 @@ const emoji3 = document.getElementById("3");
 
 function updateEmoji(element) {
     fetch(
-        "http://emojihub.herokuapp.com/api/random/category_smileys_and_people"
+        "https://emojihub.herokuapp.com/api/random/category_smileys_and_people"
     )
         .then((response) => response.json())
         .then((emoji) => {
