@@ -4,7 +4,7 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/cheatsnake/emojihub/issues)
 
 ## :mag: Overview
-:sunglasses: EmojiHub provides an opportunity to get random emojis from already sorted categories and groups. You can also get a whole list of emojis by a certain category, group, or get the entire emoji database consisting of 1629 objects. All emoji data is stored in a simple JSON object from which you can get html codes to insert into your web applications.
+:sunglasses: EmojiHub provides an opportunity to get random emojis from already sorted categories and groups. You can also get a whole list of emojis by a certain category, group, or get the entire emoji database consisting of 1791 objects. All emoji data is stored in a simple JSON object from which you can get html codes to insert into your web applications.
 
 > All data obtained using my own [emoji-parser](https://github.com/cheatsnake/emoji-parser) 
 
