@@ -1,6 +1,6 @@
 <a href="https://emojihub.herokuapp.com/"><img src="https://i.ibb.co/NL1zyWP/Screenshot-17.jpg" alt="EmojiHub" border="0" style="{margin: 0 auto; width: 100%;}" /></a>
 ![GitHub repo size](https://img.shields.io/github/repo-size/cheatsnake/emojihub?color=blue)
-![GitHub](https://img.shields.io/github/license/cheatsnake/emojihub?color=green)
+![GitHub](https://img.shields.io/github/license/cheatsnake/emojihub?color=orange)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/cheatsnake/emojihub/issues)
 
 ## :mag: Overview
