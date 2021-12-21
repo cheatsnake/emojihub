@@ -1,13 +1,17 @@
-
-<a href="https://emojihub.herokuapp.com/"><img src="https://i.ibb.co/Cht49d8/Screenshot-15.jpg" alt="EmojiHub" border="0" style="{margin: 0 auto; width: 100%;}" /></a>
+<a href="https://emojihub.herokuapp.com/"><img src="https://i.ibb.co/NL1zyWP/Screenshot-17.jpg" alt="EmojiHub" border="0" style="{margin: 0 auto; width: 100%;}" /></a>
+![GitHub repo size](https://img.shields.io/github/repo-size/cheatsnake/emojihub?color=blue)
+![GitHub](https://img.shields.io/github/license/cheatsnake/emojihub?color=green)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/cheatsnake/emojihub/issues)
 
 ## :mag: Overview
-EmojiHub provides an opportunity to get random emojis from already sorted categories and groups. You can also get a whole list of emojis by a certain category, group, or get the entire emoji database consisting of 1629 objects. All emoji data is stored in a simple JSON object from which you can get html codes to insert into your web applications.
+:sunglasses: EmojiHub provides an opportunity to get random emojis from already sorted categories and groups. You can also get a whole list of emojis by a certain category, group, or get the entire emoji database consisting of 1629 objects. All emoji data is stored in a simple JSON object from which you can get html codes to insert into your web applications.
 
-## API Documentation
-### Endpoints
+> All data obtained using my own [emoji-parser](https://github.com/cheatsnake/emoji-parser) 
+
+## :page_facing_up: API Documentation
+### :triangular_flag_on_post:	 Endpoints
 The service has two main endpoints:
-- To get random emojis
+- To get random emojis :game_die:
 ```
 https://emojihub.herokuapp.com/api/random
 ```
@@ -24,11 +28,11 @@ https://emojihub.herokuapp.com/api/random
   ]
 }
 ```
-- To get an array of all emojis
+- To get an array of all emojis :page_with_curl:
 ```
 https://emojihub.herokuapp.com/api/all
 ```
-### Categories & groups
+### :books: Categories & groups
 Each endpoint can be supplemented by a path to a specific category or group
 ```
 /category_{category_name}
@@ -49,7 +53,7 @@ Table with all available emoji categories and groups
 | symbols            | symbols                                                                                                                                                   |
 | flags              | flags  
 
-### Examples
+### :dart: Examples
 ```
 https://emojihub.herokuapp.com/api/random/group_face_positive
 ```
