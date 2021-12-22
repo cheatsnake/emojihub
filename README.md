@@ -1,73 +1,68 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+<a href="https://emojihub.herokuapp.com/"><img src="https://i.ibb.co/NL1zyWP/Screenshot-17.jpg" alt="EmojiHub" border="0" style="{margin: 0 auto; width: 100%;}" /></a>
+![GitHub repo size](https://img.shields.io/github/repo-size/cheatsnake/emojihub?color=blue)
+![GitHub](https://img.shields.io/github/license/cheatsnake/emojihub?color=orange)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/cheatsnake/emojihub/issues)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## :mag: Overview
+:sunglasses: EmojiHub provides an opportunity to get random emojis from already sorted categories and groups. You can also get a whole list of emojis by a certain category, group, or get the entire emoji database consisting of 1791 objects. All emoji data is stored in a simple JSON object from which you can get html codes to insert into your web applications.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+> All data obtained using my own [emoji-parser](https://github.com/cheatsnake/emoji-parser) 
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+## :page_facing_up: API Documentation
+### :triangular_flag_on_post:	 Endpoints
+The service has two main endpoints:
+- To get random emojis :game_die:
+```
+https://emojihub.herokuapp.com/api/random
+```
+```js
+{
+  name: "hugging face",
+  category: "smileys and people",
+  group: "face positive",
+  htmlCode: [
+    "&#129303;"
+  ],
+  unicode: [
+    "U+1F917"
+  ]
+}
+```
+- To get an array of all emojis :page_with_curl:
+```
+https://emojihub.herokuapp.com/api/all
+```
+### :books: Categories & groups
+Each endpoint can be supplemented by a path to a specific category or group
+```
+/category_{category_name}
+```
+```
+/group_{group_name}
 ```
 
-## Running the app
+Table with all available emoji categories and groups
+| Category           | Groups                                                                                                                                             |
+| ------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| smileys_and_people | body<br>cat_face<br>clothing<br>creature_face<br>emotion<br>face_negative<br>face_neutral<br>face_positive<br>face_positive<br>face_role<br>face_sick<br>family<br>monkey_face<br>person<br>person_activity<br>person_gesture<br>person_role<br>skin_tone |
+| animals_and_nature | animal_amphibian<br>animal_bird<br>animal_bug<br>animal_mammal<br>animal_marine<br>animal_reptile<br>plant_flower<br>plant_other                                                                                                                                                |
+| food_and_drink     | dishware<br>drink<br>food_asian<br>food_fruit<br>food_prepared<br>food_sweat<br>food_vegetable                                                                                                                                                    |
+| travel_and_places  | travel_and_places                                                                                                                                                   |
+| activities         | activities                                                                                                                                                   |
+| objects            | objects                                                                                                                                                   |
+| symbols            | symbols                                                                                                                                                   |
+| flags              | flags  
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+### :dart: Examples
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+https://emojihub.herokuapp.com/api/random/group_face_positive
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+```
+https://emojihub.herokuapp.com/api/random/category_food_and_drink
+```
+```
+https://emojihub.herokuapp.com/api/all/category_travel_and_places
+```
+```
+https://emojihub.herokuapp.com/api/all/group_animal_bird
+```
