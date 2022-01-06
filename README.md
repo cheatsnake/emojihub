@@ -1,7 +1,9 @@
-<a href="https://emojihub.herokuapp.com/"><img src="https://i.ibb.co/NL1zyWP/Screenshot-17.jpg" alt="EmojiHub" border="0" style="{margin: 0 auto; width: 100%;}" /></a>
-![GitHub repo size](https://img.shields.io/github/repo-size/cheatsnake/emojihub?color=blue)
-![GitHub](https://img.shields.io/github/license/cheatsnake/emojihub?color=orange)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/cheatsnake/emojihub/issues)
+<div align="center">
+  <a href="https://emojihub.herokuapp.com/"><img src="https://i.ibb.co/NL1zyWP/Screenshot-17.jpg" alt="EmojiHub" border="0" style="{margin: 0 auto; width: 100%;}" /></a>
+  <a href="https://img.shields.io/github/repo-size/cheatsnake/emojihub?color=blue"><img src="https://img.shields.io/github/repo-size/cheatsnake/emojihub?color=blue" alt="GitHub repo size"/></a>
+  <a href="https://img.shields.io/github/license/cheatsnake/emojihub?color=orange"><img src="https://img.shields.io/github/license/cheatsnake/emojihub?color=orange" alt="GitHub repo size"/></a>
+  <a href="https://github.com/cheatsnake/emojihub/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="GitHub repo size"/></a>
+</div>
 
 ## :mag: Overview
 :sunglasses: EmojiHub provides an opportunity to get random emojis from already sorted categories and groups. You can also get a whole list of emojis by a certain category, group, or get the entire emoji database consisting of 1791 objects. All emoji data is stored in a simple JSON object from which you can get html codes to insert into your web applications.
