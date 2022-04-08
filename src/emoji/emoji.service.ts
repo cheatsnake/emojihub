@@ -10,7 +10,10 @@ export class EmojiService {
     ) {}
 
     async getAllEmoji(): Promise<Emoji[]> {
-        const emojis = await this.emojiModel.find({}, { _id: 0 }).exec();
+        const emojis = await this.emojiModel
+            .find({}, { _id: 0 })
+            .sort({ _id: 1 })
+            .exec();
         return emojis;
     }
 
@@ -18,6 +21,7 @@ export class EmojiService {
         const validCategory: string = category.replace(/_/g, " ");
         const emojis = await this.emojiModel
             .find({ category: validCategory }, { _id: 0 })
+            .sort({ _id: 1 })
             .exec();
         return emojis;
     }
@@ -26,6 +30,7 @@ export class EmojiService {
         const validGruop: string = group.replace(/_/g, " ");
         const emojis = await this.emojiModel
             .find({ group: validGruop }, { _id: 0 })
+            .sort({ _id: 1 })
             .exec();
         return emojis;
     }
