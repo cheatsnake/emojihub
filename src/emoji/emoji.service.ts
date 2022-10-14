@@ -27,9 +27,9 @@ export class EmojiService {
     }
 
     async getEmojiByGroup(group: string): Promise<Emoji[]> {
-        const validGruop: string = group.replace(/_/g, " ");
+        const validGroup: string = group.replace(/_/g, " ");
         const emojis = await this.emojiModel
-            .find({ group: validGruop }, { _id: 0 })
+            .find({ group: validGroup }, { _id: 0 })
             .sort({ _id: 1 })
             .exec();
         return emojis;
