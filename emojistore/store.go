@@ -7,7 +7,7 @@ import (
 )
 
 type Store struct {
-	Emojis     []Emoji
+	Emojis []Emoji
 }
 
 func New() *Store {
@@ -35,7 +35,7 @@ func (s *Store) GetAll() []Emoji {
 }
 
 func (s *Store) GetAllByCategory(ctg string) []Emoji {
-	emojis := make([]Emoji, 0, len(s.Emojis) / 2)
+	emojis := make([]Emoji, 0, len(s.Emojis)/2)
 
 	for _, e := range s.Emojis {
 		if e.Category == ctg {
@@ -46,12 +46,11 @@ func (s *Store) GetAllByCategory(ctg string) []Emoji {
 	return emojis
 }
 
-func (s *Store) GetAllByCategoryGroup(ctg string, grp string) []Emoji {
-	filtered := s.GetAllByCategory(ctg)
-	emojis := make([]Emoji, 0, len(filtered))
+func (s *Store) GetAllByGroup(grp string) []Emoji {
+	emojis := make([]Emoji, 0, len(s.Emojis)/2)
 
-	for _, e := range filtered {
-		if e.Category == ctg {
+	for _, e := range s.Emojis {
+		if e.Group == grp {
 			emojis = append(emojis, e)
 		}
 	}
@@ -66,14 +65,23 @@ func (s *Store) GetRandom() Emoji {
 
 func (s *Store) GetRandomByCategory(ctg string) Emoji {
 	emojis := s.GetAllByCategory(ctg)
+
+	if len(emojis) < 1 {
+		return Emoji{}
+	}
+
 	idx := rand.Intn(len(emojis))
 
 	return emojis[idx]
 }
 
-func (s *Store) GetRandomByCategoryGroup(ctg string, grp string) Emoji {
-	filtered := s.GetAllByCategory(ctg)
-	emojis := make([]Emoji, 0, len(filtered))
+func (s *Store) GetRandomByGroup(grp string) Emoji {
+	emojis := s.GetAllByGroup(grp)
+
+	if len(emojis) < 1 {
+		return Emoji{}
+	}
+
 	idx := rand.Intn(len(emojis))
 
 	return emojis[idx]
