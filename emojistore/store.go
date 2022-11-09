@@ -1,31 +1,49 @@
 package emojistore
 
 import (
+	_ "embed"
 	"encoding/json"
 	"math/rand"
-	"os"
+
+	"golang.org/x/exp/slices"
 )
 
+//go:embed data/emojibase.min.json
+var emojibase []byte
+
+type Emoji struct {
+	Name     string   `json:"name"`
+	Category string   `json:"category"`
+	Group    string   `json:"group"`
+	HtmlCode []string `json:"htmlCode"`
+	Unicode  []string `json:"unicode"`
+}
+
 type Store struct {
-	Emojis []Emoji
+	Emojis     []Emoji
+	Categories []string
+	Groups     []string
 }
 
 func New() *Store {
+	var emojis []Emoji
 	newStore := Store{}
-	file, err := os.Open("./data/emojibase.min.json")
+
+	err := json.Unmarshal(emojibase, &emojis)
 	if err != nil {
 		panic(err)
 	}
-	defer file.Close()
 
-	decoder := json.NewDecoder(file)
-	decoder.Token()
-
-	emoji := Emoji{}
-	for decoder.More() {
-		decoder.Decode(&emoji)
-		newStore.Emojis = append(newStore.Emojis, emoji)
+	for _, emoji := range emojis {
+		if !slices.Contains(newStore.Categories, emoji.Category) {
+			newStore.Categories = append(newStore.Categories, emoji.Category)
+		}
+		if !slices.Contains(newStore.Groups, emoji.Group) {
+			newStore.Groups = append(newStore.Groups, emoji.Group)
+		}
 	}
+
+	newStore.Emojis = emojis
 
 	return &newStore
 }
