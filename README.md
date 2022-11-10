@@ -10,6 +10,16 @@
 GET /api/random
 ```
 
+```json
+{
+    "name": "hugging face",
+    "category": "smileys and people",
+    "group": "face positive",
+    "htmlCode": ["&#129303;"],
+    "unicode": ["U+1F917"]
+}
+```
+
 -   Get an array of all emojis
 
 ```rs
