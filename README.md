@@ -7,7 +7,7 @@
 -   Get random emoji
 
 ```rs
-GET /api/random
+GET https://emojihub.yurace.pro/api/random
 ```
 
 ```json
@@ -23,7 +23,7 @@ GET /api/random
 -   Get an array of all emojis
 
 ```rs
-GET /api/all
+GET https://emojihub.yurace.pro/api/all
 ```
 
 Each endpoint can be supplemented by a path to a specific category or group:
@@ -52,19 +52,19 @@ Each endpoint can be supplemented by a path to a specific category or group:
 ### 🎯 Examples
 
 ```
-api/random/group/face-positive
+https://emojihub.yurace.pro/api/random/group/face-positive
 ```
 
 ```
-api/random/category/food-and-drink
+https://emojihub.yurace.pro/api/random/category/food-and-drink
 ```
 
 ```
-api/all/category/travel-and-places
+https://emojihub.yurace.pro/api/all/category/travel-and-places
 ```
 
 ```
-api/all/group/animal-bird
+https://emojihub.yurace.pro/api/all/group/animal-bird
 ```
 
 ## 🚀 Server startup
