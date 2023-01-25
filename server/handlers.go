@@ -10,6 +10,11 @@ import (
 )
 
 func (s *Server) Emojis(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 
 	emojis := s.Store.GetAll()
@@ -19,6 +24,11 @@ func (s *Server) Emojis(w http.ResponseWriter, r *http.Request, _ httprouter.Par
 }
 
 func (s *Server) EmojisByCategory(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 
 	category := strings.Replace(ps.ByName("category"), "-", " ", -1)
@@ -34,6 +44,11 @@ func (s *Server) EmojisByCategory(w http.ResponseWriter, r *http.Request, ps htt
 }
 
 func (s *Server) EmojisByGroup(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 
 	group := strings.Replace(ps.ByName("group"), "-", " ", -1)
@@ -49,6 +64,11 @@ func (s *Server) EmojisByGroup(w http.ResponseWriter, r *http.Request, ps httpro
 }
 
 func (s *Server) RandomEmoji(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 
 	emoji := s.Store.GetRandom()
@@ -58,6 +78,11 @@ func (s *Server) RandomEmoji(w http.ResponseWriter, r *http.Request, _ httproute
 }
 
 func (s *Server) RandomEmojiByCategory(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 
 	category := strings.Replace(ps.ByName("category"), "-", " ", -1)
@@ -73,6 +98,11 @@ func (s *Server) RandomEmojiByCategory(w http.ResponseWriter, r *http.Request, p
 }
 
 func (s *Server) RandomEmojiByGroup(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 
 	group := strings.Replace(ps.ByName("group"), "-", " ", -1)
