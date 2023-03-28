@@ -10,6 +10,7 @@ import (
 	"github.com/cheatsnake/emojihub/emojistore"
 	"github.com/cheatsnake/emojihub/server"
 	"github.com/julienschmidt/httprouter"
+	"github.com/rs/cors"
 )
 
 func main() {
@@ -28,6 +29,6 @@ func main() {
 	router.GET("/api/random/category/:category", server.RandomEmojiByCategory)
 	router.GET("/api/random/group/:group", server.RandomEmojiByGroup)
 
-	fmt.Printf("Server starts on the port %s... \n", port)
-	log.Fatal(http.ListenAndServe(":"+port, router))
+	fmt.Printf("Server is running on the port %s... \n", port)
+	log.Fatal(http.ListenAndServe(":"+port, cors.Default().Handler(router)))
 }
