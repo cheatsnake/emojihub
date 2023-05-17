@@ -81,7 +81,11 @@ https://emojihub.yurace.pro/api/all/group/animal-bird
 1. Clone this repository:
 
 ```sh
-git clone -b go-version --single-branch https://github.com/cheatsnake/emojihub.git
+git clone https://github.com/cheatsnake/emojihub.git
+```
+
+```sh
+cd ./emojihub
 ```
 
 2. Inside the project, run this command to install the necessary packages:
