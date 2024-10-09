@@ -16,7 +16,7 @@ import (
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	port := "4000"
+	port := "8080"
 	store := emojistore.New()
 	server := server.New(store)
 	router := httprouter.New()

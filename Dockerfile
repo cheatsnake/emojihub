@@ -10,5 +10,5 @@ RUN go build -o app cmd/main.go
 FROM alpine:latest AS production
 RUN apk add --no-cache ca-certificates
 COPY --from=builder app .
-EXPOSE 4000
+EXPOSE 8080
 CMD ./app
