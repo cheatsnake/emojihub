@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "9f381233-73ed-440b-b044-df27a7331b12",
+		"name": "EmojiHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25254102",
+		"_collection_link": "https://vitrion-bv.postman.co/workspace/Vitrion-B.V.~b9f86d1b-9926-4670-83c6-da3804008366/collection/25254102-9f381233-73ed-440b-b044-df27a7331b12?action=share&source=collection_link&creator=25254102"
+	},
+	"item": [
+		{
+			"name": "Get all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/all",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all by category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/all/category/activities",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"all",
+						"category",
+						"activities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all by group",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/all/group/creature-face",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"all",
+						"group",
+						"creature-face"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ger random",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/random",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ger random by category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/random/category/food-and-drink",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"random",
+						"category",
+						"food-and-drink"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ger random by group",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/random/group/creature-face",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"random",
+						"group",
+						"creature-face"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get categories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/categories",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get groups",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/groups",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "emojihub.yurace.pro"
+		}
+	]
+}
