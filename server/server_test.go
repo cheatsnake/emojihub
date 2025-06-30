@@ -369,3 +369,103 @@ func TestRandomEmojiByGroup(t *testing.T) {
 		}
 	})
 }
+
+func TestCategories(t *testing.T) {
+	store := emojistore.New()
+	server := New(store)
+
+	t.Run("valid request", func(t *testing.T) {
+		rr := httptest.NewRecorder()
+		req, err := http.NewRequest(http.MethodGet, "", nil)
+		if err != nil {
+			t.Error(err)
+		}
+
+		server.Categories(rr, req, httprouter.Params{})
+
+		if rr.Result().StatusCode != http.StatusOK {
+			t.Errorf("expected status 200, but got %d", rr.Result().StatusCode)
+		}
+
+		defer rr.Result().Body.Close()
+
+		expected := store.Categories
+		body, err := io.ReadAll(rr.Result().Body)
+		if err != nil {
+			t.Error(err)
+		}
+
+		var jsonBody []string
+		if err := json.Unmarshal(body, &jsonBody); err != nil {
+			t.Error(err)
+		}
+
+		if len(expected) != len(jsonBody) {
+			t.Errorf("expected body with %d categories, but got %d", len(expected), len(jsonBody))
+		}
+	})
+
+	t.Run("request with not allowed method", func(t *testing.T) {
+		rr := httptest.NewRecorder()
+		req, err := http.NewRequest(http.MethodPost, "", nil)
+		if err != nil {
+			t.Error(err)
+		}
+
+		server.Categories(rr, req, httprouter.Params{})
+
+		if rr.Result().StatusCode != http.StatusMethodNotAllowed {
+			t.Errorf("expected status 405, but got %d", rr.Result().StatusCode)
+		}
+	})
+}
+
+func TestGroups(t *testing.T) {
+	store := emojistore.New()
+	server := New(store)
+
+	t.Run("valid request", func(t *testing.T) {
+		rr := httptest.NewRecorder()
+		req, err := http.NewRequest(http.MethodGet, "", nil)
+		if err != nil {
+			t.Error(err)
+		}
+
+		server.Groups(rr, req, httprouter.Params{})
+
+		if rr.Result().StatusCode != http.StatusOK {
+			t.Errorf("expected status 200, but got %d", rr.Result().StatusCode)
+		}
+
+		defer rr.Result().Body.Close()
+
+		expected := store.Groups
+		body, err := io.ReadAll(rr.Result().Body)
+		if err != nil {
+			t.Error(err)
+		}
+
+		var jsonBody []string
+		if err := json.Unmarshal(body, &jsonBody); err != nil {
+			t.Error(err)
+		}
+
+		if len(expected) != len(jsonBody) {
+			t.Errorf("expected body with %d groups, but got %d", len(expected), len(jsonBody))
+		}
+	})
+
+	t.Run("request with not allowed method", func(t *testing.T) {
+		rr := httptest.NewRecorder()
+		req, err := http.NewRequest(http.MethodPost, "", nil)
+		if err != nil {
+			t.Error(err)
+		}
+
+		server.Groups(rr, req, httprouter.Params{})
+
+		if rr.Result().StatusCode != http.StatusMethodNotAllowed {
+			t.Errorf("expected status 405, but got %d", rr.Result().StatusCode)
+		}
+	})
+}
