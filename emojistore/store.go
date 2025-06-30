@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"encoding/json"
 	"math/rand"
+	"strings"
 
 	"golang.org/x/exp/slices"
 )
@@ -103,4 +104,53 @@ func (s *Store) GetRandomByGroup(grp string) Emoji {
 	idx := rand.Intn(len(emojis))
 
 	return emojis[idx]
+}
+
+// Search finds emojis whose names contain the query string (case-insensitive)
+func (s *Store) Search(query string) []Emoji {
+	if query == "" {
+		return []Emoji{}
+	}
+
+	query = strings.ToLower(query)
+	emojis := make([]Emoji, 0)
+
+	for _, e := range s.Emojis {
+		if strings.Contains(strings.ToLower(e.Name), query) {
+			emojis = append(emojis, e)
+		}
+	}
+
+	return emojis
+}
+
+// GetSimilar finds emojis with names similar to the given name
+// Returns emojis that share words or have partial matches
+func (s *Store) GetSimilar(name string) []Emoji {
+	if name == "" {
+		return []Emoji{}
+	}
+
+	name = strings.ToLower(name)
+	emojis := make([]Emoji, 0)
+	words := strings.Fields(name)
+
+	for _, e := range s.Emojis {
+		emojiName := strings.ToLower(e.Name)
+
+		// Skip exact matches
+		if emojiName == name {
+			continue
+		}
+
+		// Check if any word from the input name appears in the emoji name
+		for _, word := range words {
+			if len(word) > 2 && strings.Contains(emojiName, word) {
+				emojis = append(emojis, e)
+				break
+			}
+		}
+	}
+
+	return emojis
 }

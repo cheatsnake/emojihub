@@ -55,6 +55,49 @@ GET https://emojihub.yurace.pro/api/groups
 ["face positive","face neutral","face negative","face role","face sick","creature face",...and more]
 ```
 
+-   Search emojis by name
+
+```rs
+GET https://emojihub.yurace.pro/api/search?q={query}
+```
+
+```json
+[
+    {
+        "name": "cat face with wry smile",
+        "category": "smileys and people",
+        "group": "cat face",
+        "htmlCode": ["&#128572;"],
+        "unicode": ["U+1F63C"]
+    }
+]
+```
+
+-   Get similar emojis by name
+
+```rs
+GET https://emojihub.yurace.pro/api/similar/{name}
+```
+
+```json
+[
+    {
+        "name": "grinning face",
+        "category": "smileys and people",
+        "group": "face positive",
+        "htmlCode": ["&#128512;"],
+        "unicode": ["U+1F600"]
+    },
+    {
+        "name": "smiling face with smiling eyes",
+        "category": "smileys and people",
+        "group": "face positive",
+        "htmlCode": ["&#128513;"],
+        "unicode": ["U+1F601"]
+    }
+]
+```
+
 Each endpoint can be supplemented by a path to a specific category or group:
 
 ```
@@ -103,6 +146,15 @@ https://emojihub.yurace.pro/api/all/category/travel-and-places
 ```
 https://emojihub.yurace.pro/api/all/group/animal-bird
 ```
+
+```
+https://emojihub.yurace.pro/api/search?q=smile
+```
+
+```
+https://emojihub.yurace.pro/api/similar/cat
+```
+
 
 ## 🚀 Server startup
 

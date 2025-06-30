@@ -294,6 +294,83 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Search emojis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/search?q=smile",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "smile"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get similar emojis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/similar/face",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"similar",
+						"face"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
