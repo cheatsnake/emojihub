@@ -116,3 +116,69 @@ func (s *Server) RandomEmojiByGroup(w http.ResponseWriter, r *http.Request, ps h
 
 	w.Write(json)
 }
+
+func (s *Server) Categories(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	json, _ := json.Marshal(s.Store.Categories)
+
+	w.Write(json)
+}
+
+func (s *Server) Groups(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	json, _ := json.Marshal(s.Store.Groups)
+
+	w.Write(json)
+}
+
+func (s *Server) Search(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
+	query := r.URL.Query().Get("q")
+	if query == "" {
+		HandleError(w, http.StatusBadRequest, "query parameter 'q' is required")
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	emojis := s.Store.Search(query)
+	json, _ := json.Marshal(emojis)
+
+	w.Write(json)
+}
+
+func (s *Server) Similar(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
+	name := ps.ByName("name")
+	if name == "" {
+		HandleError(w, http.StatusBadRequest, "name parameter is required")
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	emojis := s.Store.GetSimilar(name)
+	json, _ := json.Marshal(emojis)
+
+	w.Write(json)
+}

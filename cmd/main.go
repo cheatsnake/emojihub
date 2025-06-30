@@ -29,6 +29,12 @@ func main() {
 	router.GET("/api/random/category/:category", server.RandomEmojiByCategory)
 	router.GET("/api/random/group/:group", server.RandomEmojiByGroup)
 
+	router.GET("/api/categories", server.Categories)
+	router.GET("/api/groups", server.Groups)
+
+	router.GET("/api/search", server.Search)
+	router.GET("/api/similar/:name", server.Similar)
+
 	fmt.Printf("Server is running on the port %s... \n", port)
 	log.Fatal(http.ListenAndServe(":"+port, cors.Default().Handler(router)))
 }
