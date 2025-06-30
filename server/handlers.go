@@ -116,3 +116,29 @@ func (s *Server) RandomEmojiByGroup(w http.ResponseWriter, r *http.Request, ps h
 
 	w.Write(json)
 }
+
+func (s *Server) Categories(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	json, _ := json.Marshal(s.Store.Categories)
+
+	w.Write(json)
+}
+
+func (s *Server) Groups(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	if r.Method != http.MethodGet {
+		HandleError(w, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	json, _ := json.Marshal(s.Store.Groups)
+
+	w.Write(json)
+}

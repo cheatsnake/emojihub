@@ -35,6 +35,26 @@ GET https://emojihub.yurace.pro/api/random
 GET https://emojihub.yurace.pro/api/all
 ```
 
+-   Get all available categories
+
+```rs
+GET https://emojihub.yurace.pro/api/categories
+```
+
+```json
+["smileys and people","animals and nature","food and drink","travel and places","activities","objects","symbols","flags"]
+```
+
+-   Get all available groups
+
+```rs
+GET https://emojihub.yurace.pro/api/groups
+```
+
+```json
+["face positive","face neutral","face negative","face role","face sick","creature face",...and more]
+```
+
 Each endpoint can be supplemented by a path to a specific category or group:
 
 ```
@@ -59,6 +79,14 @@ Each endpoint can be supplemented by a path to a specific category or group:
 | flags              | flags                                                                                                                                                                                                                   |
 
 ### 🎯 Examples
+
+```
+https://emojihub.yurace.pro/api/categories
+```
+
+```
+https://emojihub.yurace.pro/api/groups
+```
 
 ```
 https://emojihub.yurace.pro/api/random/group/face-positive
